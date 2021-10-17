@@ -13,8 +13,10 @@ bot = telebot.TeleBot(token)
 def qr (message):
     #get the radius from the message
     text=str(message.text)
+    qr=open('qr.png', 'w')
     image=qrcode.make(text)
     image.save('qr.png')
+    qr.close()
     bot.send_photo(message.from_user.id, photo=open('qr.png', 'rb'))
 
 #run
