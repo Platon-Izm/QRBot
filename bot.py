@@ -15,7 +15,7 @@ def qr (message):
     text=str(message.text)
     image=qrcode.make(text)
     image.save('qr.png')
-    bot.send_photo(message.from_user.id, open('qr.png', 'rb'))
+    bot.send_photo(message.from_user.id, photo=open('qr.png', 'rb'))
 
 #run
 bot.polling(none_stop=True)
